@@ -8,6 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface TaskInsertMapper extends GenericMapper<Task, TaskInsertDTO> {
 
+
     @Override
     @Mapping(target = "id")
     Task asEntity(TaskInsertDTO taskDto);
