@@ -1,15 +1,15 @@
 
-#Task List with Java Spring Boot
+# Task List with Java Spring Boot
 
-##Spring Boot, H2, JPA, Rest API Tutorial
+## Spring Boot, H2, JPA, Rest API Tutorial
 Build Restful CRUD API for a simple Task list application using Spring Boot, H2 and JPA.
 
-##Requirements
+## Requirements
 Java - 1.8.x
 
-##Maven - 3.x.x
+## Maven - 3.x.x
 
-##Setup
+## Setup
 1. Clone the application
 
 2. Build Docker
