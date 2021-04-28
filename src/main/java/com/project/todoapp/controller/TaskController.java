@@ -1,14 +1,13 @@
 package com.project.todoapp.controller;
 
 import com.project.todoapp.dto.TaskDTO;
+import com.project.todoapp.dto.TaskInsertDTO;
 import com.project.todoapp.mapper.TaskMapper;
 import com.project.todoapp.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,12 +29,24 @@ public class TaskController {
     @GetMapping("/{id}")
     public ResponseEntity<TaskDTO> findTaskById(@PathVariable Long id){
         return ResponseEntity.ok(taskService.findTaskById(id));
-
     }
 
-//    public LogMonitorJiraDTO findById(@PathVariable("id") Integer id) {
-//        LogMonitorJira logMonitorJira = logMonitorJiraService.findById(id).orElse(null);
-//        return logMonitorJiraMapper.asDTO(logMonitorJira);
-//    }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public TaskDTO insertTask(@RequestBody TaskInsertDTO task){
+        return taskService.insertTask(task);
+    }
+    
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public TaskDTO updateTask(TaskDTO taskdto ,@PathVariable Long id){
+        return taskService.updateTask(taskdto,id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteTask(@PathVariable Long id){
+        taskService.deleteTaskById(id);
+    }
 }
 

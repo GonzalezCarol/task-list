@@ -23,7 +23,7 @@ public class TaskInsertDTO {
     private boolean done;
 
     @JsonProperty("datecreated")
-    private LocalDateTime datecreated;
+    private String datecreated;
 
 
 }

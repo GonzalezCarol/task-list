@@ -14,5 +14,5 @@ public class Task {
     private Long id;
     private String description;
     private Boolean done;
-    private LocalDateTime datecreated;
+    private String datecreated;
 }
