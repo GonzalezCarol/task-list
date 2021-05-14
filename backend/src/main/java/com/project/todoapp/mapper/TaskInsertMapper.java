@@ -16,4 +16,5 @@ public interface TaskInsertMapper extends GenericMapper<Task, TaskInsertDTO> {
     @Override
     @Mapping(target = "id")
     TaskInsertDTO asDTO(Task task);
+
 }

@@ -22,13 +22,15 @@ public class TaskController {
     private TaskMapper taskMapper;
 
     @GetMapping
-    public ResponseEntity<List<TaskDTO>> getAllTasks(){
-        return  ResponseEntity.ok(taskService.findAllTasks());
+    @ResponseStatus(HttpStatus.OK)
+    public List<TaskDTO> getAllTasks(){
+        return taskService.findAllTasks();
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<TaskDTO> findTaskById(@PathVariable Long id){
-        return ResponseEntity.ok(taskService.findTaskById(id));
+    @ResponseStatus(HttpStatus.OK)
+    public TaskDTO findTaskById(@PathVariable Long id){
+        return taskService.findTaskById(id);
     }
 
     @PostMapping
